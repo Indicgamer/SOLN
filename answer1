@@ -1,0 +1,28 @@
+class Solution {
+    public boolean checkStraightLine(int[][] coordinates) {
+        float org_slope = slope(coordinates[1][0],coordinates[0][0],coordinates[1][1],coordinates[0][1]);
+        int flag =0;
+        for(int i =1;i<coordinates.length-1;i++){
+            if (slope(coordinates[i+1][0],coordinates[i][0],coordinates[i+1][1],coordinates[i][1])!=org_slope){
+                flag=1;
+                break;
+            }
+        }
+        if (flag==0){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+
+
+        
+    }
+    float slope(float x2, float x1, float y2, float y1){
+        if(x2-x1==0){
+            return Integer.MAX_VALUE;
+        }
+        return (y2-y1)/(x2-x1);
+    }
+}
